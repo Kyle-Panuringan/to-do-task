@@ -5,14 +5,7 @@ import { useSelector } from "react-redux";
 
 const TaskList = () => {
 	const tasks = useSelector((store) => store.task);
-	return (
-		<div>
-			{tasks.map((task, id) => {
-				return <TaskItem key={id} {...task} />;
-			})}
-			<TaskAdd />
-		</div>
-	);
+	return <div></div>;
 };
 
 export default TaskList;
