@@ -1,5 +1,6 @@
 .taskItem-form {
-	input {
+	display: flex;
+	input[type="text"] {
 		width: 60%;
 		overflow: auto;
 	}

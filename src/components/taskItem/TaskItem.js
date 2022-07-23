@@ -1,9 +1,13 @@
 import React, { useState, useRef } from "react";
 import "../../css/taskItem.css";
 import { useDispatch } from "react-redux";
-import { deleteTask, updateTask } from "../../features/task/taskSlice";
+import {
+	deleteTask,
+	updateTask,
+	toggleComplete,
+} from "../../features/task/taskSlice";
 
-const TaskItem = ({ title, id }) => {
+const TaskItem = ({ title, id, complete }) => {
 	const ref = useRef();
 	const dispatch = useDispatch();
 	const [disableEdit, setDisableEdit] = useState(true);
@@ -27,6 +31,10 @@ const TaskItem = ({ title, id }) => {
 		}
 	};
 
+	const handleComplete = (id) => {
+		dispatch(toggleComplete(id));
+	};
+
 	return (
 		<div>
 			<form
@@ -36,6 +44,11 @@ const TaskItem = ({ title, id }) => {
 					handleSubmitEdit(id);
 				}}
 			>
+				<input
+					type="checkbox"
+					checked={complete}
+					onChange={() => handleComplete(id)}
+				/>
 				<input
 					type="text"
 					value={titleValue}
@@ -63,7 +76,7 @@ const TaskItem = ({ title, id }) => {
 					<button type="submit">Submit Edit</button>
 				)}
 				<button
-					type="button	"
+					type="button"
 					onClick={() => {
 						handleDelete(id);
 					}}

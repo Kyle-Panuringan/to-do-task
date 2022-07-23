@@ -1,4 +1,5 @@
 import TaskList from "./components/taskList/TaskList";
+import TaskNavbar from "./components/taskNavbar/TaskNavbar";
 import "./css/App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
 				<h1>Task List</h1>
 			</header>
 			<main>
+				<TaskNavbar />
 				<TaskList />
 			</main>
 		</div>
