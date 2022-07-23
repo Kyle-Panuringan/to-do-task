@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../../css/taskAdd.css";
 import { useDispatch } from "react-redux";
 import { addTask } from "../../features/task/taskSlice";
 
 const TaskAdd = () => {
+	const ref = useRef();
 	const [taskValue, setTaskValue] = useState("");
 	const [showAddForm, setShowAddForm] = useState(false);
 	const dispatch = useDispatch();
 
 	const handleAddTask = (e) => {
 		e.preventDefault();
-		dispatch(addTask({ title: taskValue }));
+		if (taskValue) {
+			dispatch(addTask({ title: taskValue }));
+		}
+		setTaskValue("");
 	};
 
 	return (
@@ -22,6 +26,8 @@ const TaskAdd = () => {
 							type="text"
 							value={taskValue}
 							onChange={(e) => setTaskValue(e.target.value)}
+							autoFocus
+							ref={ref}
 						/>
 						<button
 							type="button"
@@ -31,7 +37,14 @@ const TaskAdd = () => {
 						>
 							X
 						</button>
-						<button type="submit">Add Task</button>
+						<button
+							type="submit"
+							onClick={() => {
+								ref.current.focus();
+							}}
+						>
+							Add Task
+						</button>
 						<button
 							type="button"
 							onClick={() => setShowAddForm(false)}
@@ -41,7 +54,13 @@ const TaskAdd = () => {
 					</form>
 				</div>
 			) : (
-				<button onClick={() => setShowAddForm(true)}>+</button>
+				<button
+					onClick={() => {
+						setShowAddForm(true);
+					}}
+				>
+					+
+				</button>
 			)}
 		</div>
 	);

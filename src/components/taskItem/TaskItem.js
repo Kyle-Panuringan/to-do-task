@@ -1,24 +1,76 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import "../../css/taskItem.css";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "../../features/task/taskSlice";
+import { deleteTask, updateTask } from "../../features/task/taskSlice";
 
 const TaskItem = ({ title, id }) => {
+	const ref = useRef();
 	const dispatch = useDispatch();
+	const [disableEdit, setDisableEdit] = useState(true);
+	const [titleValue, setTitleValue] = useState(title);
 
 	const handleDelete = (id) => {
 		dispatch(deleteTask(id));
 	};
 
+	const handleSubmitEdit = (id) => {
+		// Only try to dispatch if the new titleValue is not equal to the current title
+		if (title !== titleValue) {
+			// If titleValue is empty don't dispatch
+			if (titleValue) {
+				setDisableEdit(true);
+				dispatch(updateTask({ id: id, title: titleValue }));
+			}
+		} else {
+			// Disable the input edit title text
+			setDisableEdit(true);
+		}
+	};
+
 	return (
 		<div>
-			<h2>{title}</h2>
-			<button
-				onClick={() => {
-					handleDelete(id);
+			<form
+				className="taskItem-form"
+				onSubmit={(e) => {
+					e.preventDefault();
+					handleSubmitEdit(id);
 				}}
 			>
-				Delete
-			</button>
+				<input
+					type="text"
+					value={titleValue}
+					disabled={disableEdit}
+					ref={ref}
+					onChange={(e) => {
+						setTitleValue(e.target.value);
+					}}
+				/>
+
+				{disableEdit ? (
+					<button
+						type="button"
+						onClick={(e) => {
+							e.preventDefault();
+							setDisableEdit(false);
+							setTimeout(() => {
+								ref.current.focus();
+							}, 10);
+						}}
+					>
+						Edit
+					</button>
+				) : (
+					<button type="submit">Submit Edit</button>
+				)}
+				<button
+					type="button	"
+					onClick={() => {
+						handleDelete(id);
+					}}
+				>
+					Delete
+				</button>
+			</form>
 		</div>
 	);
 };
