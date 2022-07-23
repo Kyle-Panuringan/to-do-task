@@ -4,8 +4,22 @@ import TaskAdd from "../taskAdd/TaskAdd";
 import { useSelector } from "react-redux";
 
 const TaskList = () => {
-	const tasks = useSelector((store) => store.task);
-	return <div></div>;
+	const tasks = useSelector((store) => store.task.tasks);
+
+	return (
+		<div>
+			{tasks.length ? (
+				<div>
+					{tasks.map((task) => {
+						return <TaskItem key={task.id} {...task} />;
+					})}
+				</div>
+			) : (
+				<p>Empty</p>
+			)}
+			<TaskAdd />
+		</div>
+	);
 };
 
 export default TaskList;
