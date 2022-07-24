@@ -47,47 +47,51 @@ const TaskItem = ({ title, id, complete }) => {
 					handleSubmitEdit(id);
 				}}
 			>
-				<input
-					type="checkbox"
-					checked={complete}
-					onChange={() => handleComplete(id)}
-				/>
-				<input
-					type="text"
-					value={titleValue}
-					disabled={disableEdit}
-					ref={ref}
-					onChange={(e) => {
-						setTitleValue(e.target.value);
-					}}
-				/>
+				<div>
+					<input
+						type="checkbox"
+						checked={complete}
+						onChange={() => handleComplete(id)}
+					/>
+					<input
+						type="text"
+						value={titleValue}
+						disabled={disableEdit}
+						ref={ref}
+						onChange={(e) => {
+							setTitleValue(e.target.value);
+						}}
+					/>
+				</div>
 
-				{disableEdit ? (
+				<div>
+					{disableEdit ? (
+						<button
+							type="button"
+							onClick={(e) => {
+								e.preventDefault();
+								setDisableEdit(false);
+								setTimeout(() => {
+									ref.current.focus();
+								}, 10);
+							}}
+						>
+							<FaEdit />
+						</button>
+					) : (
+						<button type="submit">
+							<FaCheck />
+						</button>
+					)}
 					<button
 						type="button"
-						onClick={(e) => {
-							e.preventDefault();
-							setDisableEdit(false);
-							setTimeout(() => {
-								ref.current.focus();
-							}, 10);
+						onClick={() => {
+							handleDelete(id);
 						}}
 					>
-						<FaEdit />
+						<MdDelete />
 					</button>
-				) : (
-					<button type="submit">
-						<FaCheck />
-					</button>
-				)}
-				<button
-					type="button"
-					onClick={() => {
-						handleDelete(id);
-					}}
-				>
-					<MdDelete />
-				</button>
+				</div>
 			</form>
 		</div>
 	);

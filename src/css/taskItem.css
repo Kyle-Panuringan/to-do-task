@@ -1,21 +1,29 @@
 .taskItem-form {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px;
+  margin: 14px 17px;
+  background: none;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 .taskItem-form input[type=text] {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bolder;
   width: 70%;
   overflow: auto;
-  padding: 7px;
   margin: 0 7px;
-  outline: none;
   border: none;
 }
 .taskItem-form input[type=checkbox] {
   background: red;
 }
 .taskItem-form button {
-  padding: 7px;
-  margin: 0 7px;
+  background: none;
+  font-size: 1.5rem;
+  margin: 0 4px;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=taskItem.css.map */
