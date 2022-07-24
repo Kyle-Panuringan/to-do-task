@@ -3,11 +3,8 @@ import "../../css/taskItem.css";
 import { FaEdit, FaCheck } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import {
-	deleteTask,
-	updateTask,
-	toggleComplete,
-} from "../../features/task/taskSlice";
+import { updateTask, toggleComplete } from "../../features/task/taskSlice";
+import { modalOpen } from "../../features/modal/modalSlice";
 
 const TaskItem = ({ title, id, complete }) => {
 	const ref = useRef();
@@ -17,7 +14,7 @@ const TaskItem = ({ title, id, complete }) => {
 	const [titleValue, setTitleValue] = useState(title);
 
 	const handleDelete = (id) => {
-		dispatch(deleteTask(id));
+		dispatch(modalOpen(id));
 	};
 
 	const handleSubmitEdit = (id) => {
