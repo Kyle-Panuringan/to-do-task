@@ -12,6 +12,7 @@ const getTasks = () => {
 
 const initialState = {
 	tasks: getTasks(),
+	filterStatus: "All",
 };
 
 const taskSlice = createSlice({
@@ -67,10 +68,19 @@ const taskSlice = createSlice({
 			localStorage.setItem("tasks", JSON.stringify(taskListArr));
 			state.tasks = taskListArr;
 		},
+		filterStatus: (state, action) => {
+			if (action.payload === "Pending") {
+				state.filterStatus = "Pending";
+			} else if (action.payload === "Completed") {
+				state.filterStatus = "Completed";
+			} else {
+				state.filterStatus = "All";
+			}
+		},
 	},
 });
 
-export const { addTask, deleteTask, updateTask, toggleComplete } =
+export const { addTask, deleteTask, updateTask, toggleComplete, filterStatus } =
 	taskSlice.actions;
 
 export default taskSlice.reducer;

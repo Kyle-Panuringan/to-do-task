@@ -10,6 +10,7 @@ import {
 const TaskItem = ({ title, id, complete }) => {
 	const ref = useRef();
 	const dispatch = useDispatch();
+
 	const [disableEdit, setDisableEdit] = useState(true);
 	const [titleValue, setTitleValue] = useState(title);
 
