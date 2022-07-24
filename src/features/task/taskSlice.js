@@ -57,6 +57,15 @@ const taskSlice = createSlice({
 				}
 				return task;
 			});
+			const taskListArr = getTasks();
+			taskListArr.map((task) => {
+				if (task.id === action.payload) {
+					task.complete = !task.complete;
+				}
+				return task;
+			});
+			localStorage.setItem("tasks", JSON.stringify(taskListArr));
+			state.tasks = taskListArr;
 		},
 	},
 });
