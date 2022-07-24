@@ -1,7 +1,9 @@
 .taskItem-form {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .taskItem-form input[type=text] {
-  width: 60%;
+  width: 100%;
   overflow: auto;
 }/*# sourceMappingURL=taskItem.css.map */

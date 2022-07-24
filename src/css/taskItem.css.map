@@ -1,1 +1,1 @@
-{"version":3,"sources":["../components/taskItem/taskItem.scss","taskItem.css"],"names":[],"mappings":"AAAA;EACC,aAAA;ACCD;ADAC;EACC,UAAA;EACA,cAAA;ACEF","file":"taskItem.css"}
+{"version":3,"sources":["../components/taskItem/taskItem.scss","taskItem.css"],"names":[],"mappings":"AAAA;EACC,aAAA;EACA,mBAAA;EACA,uBAAA;ACCD;ADAC;EACC,WAAA;EACA,cAAA;ACEF","file":"taskItem.css"}

@@ -1,2 +1,25 @@
 .taskAdd {
+	text-align: center;
+	padding: 10px;
+	input,
+	button {
+		border: none;
+		padding: 7px;
+	}
+	input {
+		outline: none;
+	}
+	.buttons {
+		color: white;
+		background: black;
+	}
+	#button-plus {
+		font-size: 2rem;
+		font-weight: bolder;
+		padding: 7px 77px;
+		border: 2px solid black;
+		background: none;
+		border-radius: 30px;
+		cursor: pointer;
+	}
 }

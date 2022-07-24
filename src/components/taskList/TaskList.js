@@ -1,4 +1,5 @@
 import React from "react";
+import "../../css/taskList.css";
 import TaskItem from "../taskItem/TaskItem";
 import TaskAdd from "../taskAdd/TaskAdd";
 import { useSelector } from "react-redux";
@@ -19,15 +20,20 @@ const TaskList = () => {
 
 	return (
 		<div>
-			{taskListFiltered.length ? (
-				<div>
-					{taskListFiltered.map((task) => {
-						return <TaskItem key={task.id} {...task} />;
-					})}
-				</div>
-			) : (
-				<p>Empty</p>
-			)}
+			<div className="test">
+				{taskListFiltered.length ? (
+					<div>
+						{taskListFiltered.map((task) => {
+							return <TaskItem key={task.id} {...task} />;
+						})}
+					</div>
+				) : (
+					<p>
+						Empty Task <br />
+						.......
+					</p>
+				)}
+			</div>
 			<TaskAdd />
 		</div>
 	);

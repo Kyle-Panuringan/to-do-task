@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"taskList.css"}
+{"version":3,"sources":["../components/taskList/taskList.scss","taskList.css"],"names":[],"mappings":"AAAA;EACC,uBAAA;EACA,UAAA;EACA,gBAAA;EACA,cAAA;EACA,cAAA;ACCD;ADAC;EACC,eAAA;EACA,gBAAA;EACA,kBAAA;ACEF","file":"taskList.css"}

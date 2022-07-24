@@ -38,6 +38,7 @@ const TaskAdd = () => {
 							X
 						</button>
 						<button
+							className="buttons"
 							type="submit"
 							onClick={() => {
 								ref.current.focus();
@@ -46,6 +47,7 @@ const TaskAdd = () => {
 							Add Task
 						</button>
 						<button
+							className="buttons"
 							type="button"
 							onClick={() => setShowAddForm(false)}
 						>
@@ -55,6 +57,7 @@ const TaskAdd = () => {
 				</div>
 			) : (
 				<button
+					id="button-plus"
 					onClick={() => {
 						setShowAddForm(true);
 					}}

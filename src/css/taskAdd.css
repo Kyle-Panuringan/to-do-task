@@ -1,1 +1,25 @@
-/*# sourceMappingURL=taskAdd.css.map */
+.taskAdd {
+  text-align: center;
+  padding: 10px;
+}
+.taskAdd input,
+.taskAdd button {
+  border: none;
+  padding: 7px;
+}
+.taskAdd input {
+  outline: none;
+}
+.taskAdd .buttons {
+  color: white;
+  background: black;
+}
+.taskAdd #button-plus {
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 7px 77px;
+  border: 2px solid black;
+  background: none;
+  border-radius: 30px;
+  cursor: pointer;
+}/*# sourceMappingURL=taskAdd.css.map */
