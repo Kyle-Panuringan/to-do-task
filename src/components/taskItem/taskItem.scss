@@ -2,8 +2,20 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 10px;
 	input[type="text"] {
-		width: 100%;
+		width: 70%;
 		overflow: auto;
+		padding: 7px;
+		margin: 0 7px;
+		outline: none;
+		border: none;
+	}
+	input[type="checkbox"] {
+		background: red;
+	}
+	button {
+		padding: 7px;
+		margin: 0 7px;
 	}
 }

@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import "../../css/taskItem.css";
+import { FaEdit, FaCheck } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import {
 	deleteTask,
@@ -71,10 +73,12 @@ const TaskItem = ({ title, id, complete }) => {
 							}, 10);
 						}}
 					>
-						Edit
+						<FaEdit />
 					</button>
 				) : (
-					<button type="submit">Submit Edit</button>
+					<button type="submit">
+						<FaCheck />
+					</button>
 				)}
 				<button
 					type="button"
@@ -82,7 +86,7 @@ const TaskItem = ({ title, id, complete }) => {
 						handleDelete(id);
 					}}
 				>
-					Delete
+					<MdDelete />
 				</button>
 			</form>
 		</div>
