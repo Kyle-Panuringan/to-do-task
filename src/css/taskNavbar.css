@@ -1,0 +1,12 @@
+.taskNavBar-buttons {
+  padding: 2px;
+  text-align: center;
+}
+.taskNavBar-buttons button {
+  font-weight: bolder;
+  padding: 10px;
+  margin: 7px;
+  width: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=taskNavbar.css.map */

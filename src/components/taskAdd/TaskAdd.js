@@ -18,7 +18,7 @@ const TaskAdd = () => {
 	};
 
 	return (
-		<div>
+		<div className="taskAdd">
 			{showAddForm ? (
 				<div>
 					<form onSubmit={handleAddTask}>

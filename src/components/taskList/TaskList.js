@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const TaskList = () => {
 	const { tasks, filterStatus } = useSelector((store) => store.task);
 
+	// Dynamic filter for displaying the task list based on all, pending, or completed
 	const taskListFiltered = tasks.filter((task) => {
 		if (filterStatus === "Pending") {
 			return task.complete === false;
@@ -18,7 +19,7 @@ const TaskList = () => {
 
 	return (
 		<div>
-			{tasks.length ? (
+			{taskListFiltered.length ? (
 				<div>
 					{taskListFiltered.map((task) => {
 						return <TaskItem key={task.id} {...task} />;

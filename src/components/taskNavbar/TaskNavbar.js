@@ -1,4 +1,5 @@
 import React from "react";
+import "../../css/taskNavbar.css";
 import { useDispatch } from "react-redux";
 import { filterStatus } from "../../features/task/taskSlice";
 
