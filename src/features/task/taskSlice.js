@@ -26,13 +26,17 @@ const taskSlice = createSlice({
 				complete: false,
 			};
 			state.tasks.push(newTask);
+			// Invoke and asign the return value of getTasks, then push the "newTask" and set to local Storage
 			const taskListArr = getTasks();
 			taskListArr.push(newTask);
 			localStorage.setItem("tasks", JSON.stringify(taskListArr));
 		},
 		deleteTask: (state, action) => {
 			const id = action.payload;
-			state.tasks = state.tasks.filter((task) => task.id !== id);
+			let taskListArr = getTasks();
+			taskListArr = taskListArr.filter((task) => task.id !== id);
+			localStorage.setItem("tasks", JSON.stringify(taskListArr));
+			state.tasks = taskListArr;
 		},
 		updateTask: (state, action) => {
 			state.tasks = state.tasks.map((task) => {
