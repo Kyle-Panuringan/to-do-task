@@ -34,17 +34,21 @@ const taskSlice = createSlice({
 		deleteTask: (state, action) => {
 			const id = action.payload;
 			let taskListArr = getTasks();
+			// Filter all the ID that is not equal to the action.payload id value
 			taskListArr = taskListArr.filter((task) => task.id !== id);
 			localStorage.setItem("tasks", JSON.stringify(taskListArr));
 			state.tasks = taskListArr;
 		},
 		updateTask: (state, action) => {
-			state.tasks = state.tasks.map((task) => {
+			const taskListArr = getTasks();
+			taskListArr.map((task) => {
 				if (task.id === action.payload.id) {
 					task.title = action.payload.title;
 				}
 				return task;
 			});
+			localStorage.setItem("tasks", JSON.stringify(taskListArr));
+			state.tasks = taskListArr;
 		},
 		toggleComplete: (state, action) => {
 			state.tasks = state.tasks.map((task) => {
