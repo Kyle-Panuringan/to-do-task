@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const TaskList = () => {
 	const tasks = useSelector((store) => store.task.tasks);
-
 	React.useEffect(() => {
 		console.log(tasks);
 	}, [tasks]);

@@ -1,8 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from "uuid";
 
+const getTasks = () => {
+	const tasks = localStorage.getItem("tasks");
+	if (tasks) {
+		return JSON.parse(tasks);
+	}
+	localStorage.setItem("tasks", "[]");
+	return [];
+};
+
 const initialState = {
-	tasks: [],
+	tasks: getTasks(),
 };
 
 const taskSlice = createSlice({
@@ -17,6 +26,9 @@ const taskSlice = createSlice({
 				complete: false,
 			};
 			state.tasks.push(newTask);
+			const taskListArr = getTasks();
+			taskListArr.push(newTask);
+			localStorage.setItem("tasks", JSON.stringify(taskListArr));
 		},
 		deleteTask: (state, action) => {
 			const id = action.payload;
